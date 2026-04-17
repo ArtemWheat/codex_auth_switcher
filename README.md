@@ -23,21 +23,21 @@
 ## Запуск
 
 ```bash
-cd /home/maxim/Projects/codex_authquick/codex-auth-switcher
+cd codex-auth-switcher
 python3 app.py
 ```
 
 ## Запуск в трее
 
 ```bash
-cd /home/maxim/Projects/codex_authquick/codex-auth-switcher
+cd codex-auth-switcher
 python3 tray_app.py
 ```
 
 ## Установка ярлыка в Linux
 
 ```bash
-cd /home/maxim/Projects/codex_authquick/codex-auth-switcher
+cd codex-auth-switcher
 ./install_linux_shortcut.sh
 ```
 
@@ -57,4 +57,3 @@ cd /home/maxim/Projects/codex_authquick/codex-auth-switcher
 - Если у тебя используется нестандартный путь к активному auth, можно задать `CODEX_AUTH_PATH`.
 - При активации аккаунта запись выполняется атомарно, а права на файл выставляются как `600`.
 - Лимиты читаются напрямую для конкретного сохранённого аккаунта, поэтому их можно смотреть ещё до переключения на него.
-# codex_auth_switcher
