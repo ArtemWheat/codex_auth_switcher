@@ -27,6 +27,31 @@ cd codex-auth-switcher
 python3 app.py
 ```
 
+## Запуск в терминале
+
+```bash
+cd codex-auth-switcher
+python3 cli.py --help
+```
+
+Основные команды:
+
+```bash
+python3 cli.py list
+python3 cli.py current
+python3 cli.py login
+python3 cli.py add-current --name personal
+python3 cli.py import /path/to/auth.json --name work
+python3 cli.py activate personal
+python3 cli.py limits personal
+python3 cli.py rename personal main
+python3 cli.py delete main
+python3 cli.py storage
+```
+
+В командах `activate`, `limits`, `rename` и `delete` можно указывать полный id,
+короткий префикс id или точное имя аккаунта.
+
 ## Запуск в трее
 
 ```bash
