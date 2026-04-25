@@ -222,6 +222,18 @@ def _cmd_login(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_tui(args: argparse.Namespace) -> int:
+    from .tui import main as tui_main
+
+    argv = [
+        "--refresh-interval",
+        str(args.refresh_interval),
+        "--timeout",
+        str(args.timeout),
+    ]
+    return tui_main(argv)
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="codex-auth-switcher",
@@ -272,6 +284,21 @@ def build_parser() -> argparse.ArgumentParser:
 
     storage_parser = subparsers.add_parser("storage", help="Print storage paths")
     storage_parser.set_defaults(func=_cmd_storage)
+
+    tui_parser = subparsers.add_parser("tui", help="Open interactive terminal UI")
+    tui_parser.add_argument(
+        "--refresh-interval",
+        type=int,
+        default=60,
+        help="Seconds between automatic limit refreshes.",
+    )
+    tui_parser.add_argument(
+        "--timeout",
+        type=int,
+        default=10,
+        help="Rate limit request timeout in seconds.",
+    )
+    tui_parser.set_defaults(func=_cmd_tui)
 
     return parser
 

@@ -41,7 +41,8 @@ class AuthProfile:
     @property
     def display_name(self) -> str:
         if self.email:
-            return self.email
+            local_part = self.email.split("@", 1)[0].strip()
+            return local_part or self.email
         if self.account_id:
             return f"Account {self.account_id[:8]}"
         return "Unknown account"
